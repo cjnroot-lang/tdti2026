@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NMTI 牛马人格测试 | 你是卷王、演王、背锅侠还是精神股东？</title>
+    <meta
+      name="description"
+      content="24道题，测出你的牛马人格。纯娱乐，适合截图发群。"
+    >
+    <meta property="og:title" content="NMTI 牛马人格测试">
+    <meta
+      property="og:description"
+      content="你是卷王、演王、背锅侠还是精神股东？24道题，3分钟出结果。"
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="noise"></div>
+    <main class="shell">
+      <section class="hero" id="hero-screen">
+        <p class="eyebrow">NMTI / NIUMA TYPE INDICATOR</p>
+        <h1>NMTI 牛马人格测试</h1>
+        <p class="hero-copy">
+          MBTI 先放一边，NMTI 来了。先看看你在办公室到底是卷王、演王、背锅侠，还是精神股东。
+        </p>
+
+        <div class="hero-cards">
+          <article class="mini-card">
+            <span class="mini-label">题量</span>
+            <strong>24 题</strong>
+          </article>
+          <article class="mini-card">
+            <span class="mini-label">耗时</span>
+            <strong>约 3 分钟</strong>
+          </article>
+          <article class="mini-card">
+            <span class="mini-label">风格</span>
+            <strong>嘴毒但友好</strong>
+          </article>
+        </div>
+
+        <div class="avatar-showcase" aria-hidden="true">
+          <img src="./avatars/boss.svg" alt="">
+          <img src="./avatars/show.svg" alt="">
+          <img src="./avatars/hero.svg" alt="">
+          <img src="./avatars/ghost.svg" alt="">
+        </div>
+
+        <div class="hero-actions">
+          <button class="primary-button" id="start-button" type="button">开始测试</button>
+          <button class="ghost-button" id="jump-result-button" type="button">我想先看结果风格</button>
+        </div>
+
+        <p class="disclaimer">
+          仅供娱乐，不适用于招聘、绩效、相亲、分手、升职、裁员和人生审判。
+        </p>
+      </section>
+
+      <section class="quiz hidden" id="quiz-screen">
+        <div class="quiz-top">
+          <button class="text-button" id="back-home-button" type="button">返回首页</button>
+          <div class="progress-block">
+            <div class="progress-meta">
+              <span id="progress-label">第 1 / 24 题</span>
+              <span id="progress-percent">4%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <article class="question-card">
+          <p class="question-tag" id="question-tag">场景判断</p>
+          <h2 id="question-text">加载中...</h2>
+          <div class="option-list" id="option-list"></div>
+        </article>
+
+        <div class="quiz-footer">
+          <button class="ghost-button" id="prev-button" type="button">上一题</button>
+          <button class="primary-button" id="next-button" type="button">下一题</button>
+        </div>
+      </section>
+
+      <section class="result hidden" id="result-screen">
+        <div class="result-head">
+          <button class="text-button" id="retry-top-button" type="button">重新测试</button>
+          <button class="text-button" id="back-top-button" type="button">回首页</button>
+        </div>
+
+        <article class="result-card" id="result-card">
+          <div class="result-badge" id="result-badge">工位热搜角色</div>
+          <div class="result-hero">
+            <img id="result-avatar" src="./avatars/boss.svg" alt="NMTI 类型角色插画">
+          </div>
+          <p class="result-slogan" id="result-slogan">你的人设已生成，请谨慎发群。</p>
+          <p class="result-kicker">你的 NMTI 类型</p>
+          <h2 id="result-title">正在解析你的工位气质</h2>
+          <p class="result-code" id="result-code">WIP</p>
+          <p class="result-summary" id="result-summary"></p>
+          <div class="chip-row" id="result-tags"></div>
+          <div class="result-footerline">
+            <span>NMTI / NIUMA TYPE INDICATOR</span>
+            <span id="result-stamp">办公室民间鉴定版</span>
+          </div>
+        </article>
+
+        <section class="result-grid">
+          <article class="panel">
+            <h3>一句话解读</h3>
+            <p id="result-description"></p>
+          </article>
+          <article class="panel">
+            <h3>同事视角</h3>
+            <p id="coworker-view"></p>
+          </article>
+        </section>
+
+        <section class="panel">
+          <div class="scores-head">
+            <h3>你的工位雷达</h3>
+            <span id="match-rate">匹配度 00%</span>
+          </div>
+          <div class="score-list" id="score-list"></div>
+        </section>
+
+        <section class="panel">
+          <h3>友情提示</h3>
+          <p>
+            结果只是你当下的社畜切面，不是永久人格。睡饱一点、发完奖金、换个老板，结果都可能重算。
+          </p>
+        </section>
+
+        <div class="hero-actions result-actions">
+          <button class="primary-button" id="share-button" type="button">复制分享文案</button>
+          <button class="ghost-button" id="retry-button" type="button">再测一次</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

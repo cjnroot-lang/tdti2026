@@ -447,6 +447,10 @@ button {
   place-items: center;
 }
 
+.plaza-drop-card.dropping {
+  animation: plaza-airdrop 860ms cubic-bezier(0.2, 0.9, 0.24, 1.18);
+}
+
 .plaza-drop-aura {
   position: absolute;
   inset: 8px;
@@ -457,6 +461,10 @@ button {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.5),
     0 12px 30px rgba(29, 22, 15, 0.08);
+}
+
+.plaza-drop-card.dropping .plaza-drop-aura {
+  animation: plaza-airdrop-aura 860ms ease-out;
 }
 
 .plaza-drop-avatar {
@@ -505,6 +513,39 @@ button {
   }
   50% {
     transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes plaza-airdrop {
+  0% {
+    transform: translateY(-140px) scale(0.72) rotate(-10deg);
+    opacity: 0;
+  }
+  52% {
+    transform: translateY(12px) scale(1.06) rotate(3deg);
+    opacity: 1;
+  }
+  72% {
+    transform: translateY(-6px) scale(0.98) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes plaza-airdrop-aura {
+  0% {
+    transform: scale(0.74);
+    opacity: 0;
+  }
+  54% {
+    transform: scale(1.14);
+    opacity: 0.92;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 

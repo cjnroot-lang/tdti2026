@@ -1149,6 +1149,7 @@ const els = {
   plazaCopy: document.querySelector("#plaza-copy"),
   plazaCrowd: document.querySelector("#plaza-crowd"),
   plazaDropKicker: document.querySelector("#plaza-drop-kicker"),
+  plazaDropCard: document.querySelector("#plaza-drop-card"),
   plazaDropAura: document.querySelector("#plaza-drop-aura"),
   plazaDropAvatar: document.querySelector("#plaza-drop-avatar"),
   plazaDropTitle: document.querySelector("#plaza-drop-title"),
@@ -1278,6 +1279,9 @@ function showScreen(name) {
     element.classList.toggle("hidden", key !== name);
   });
   els.plazaScreen.classList.toggle("hidden", name !== "hero");
+  if (name === "hero" && state.result) {
+    triggerPlazaDropAnimation();
+  }
 }
 
 function plazaMembers() {
@@ -1348,6 +1352,19 @@ function renderPlaza() {
       linear-gradient(135deg, rgba(91, 110, 225, 0.22), rgba(243, 179, 61, 0.14))
     `;
   }
+}
+
+function triggerPlazaDropAnimation() {
+  if (!state.result) {
+    return;
+  }
+  els.plazaDropCard.classList.remove("dropping");
+  void els.plazaDropCard.offsetWidth;
+  els.plazaDropCard.classList.add("dropping");
+  window.clearTimeout(triggerPlazaDropAnimation.timer);
+  triggerPlazaDropAnimation.timer = window.setTimeout(() => {
+    els.plazaDropCard.classList.remove("dropping");
+  }, 900);
 }
 
 function optionBadge(option, index) {
@@ -1530,6 +1547,7 @@ function renderResult() {
   });
 
   renderPlaza();
+  triggerPlazaDropAnimation();
 }
 
 function allAnswered() {

@@ -1188,6 +1188,34 @@ function showScreen(name) {
   });
 }
 
+function optionBadge(option, index) {
+  const scores = option.scores;
+  const palette = [
+    { color: "#db5b2b", zh: "上头", en: "CHAOS" },
+    { color: "#1f7a6b", zh: "稳住", en: "SAFE" },
+    { color: "#5b6ee1", zh: "脑补", en: "BRAIN" },
+    { color: "#73b44a", zh: "摸了", en: "CHILL" },
+    { color: "#f3b33d", zh: "开冲", en: "RUSH" },
+  ];
+
+  let key = 0;
+  if ((scores.drive || 0) <= -2 || (scores.social || 0) <= -2) {
+    key = 3;
+  } else if ((scores.control || 0) >= 2) {
+    key = 1;
+  } else if ((scores.risk || 0) >= 2 || (scores.drive || 0) >= 2) {
+    key = 4;
+  } else if ((scores.emotion || 0) >= 1) {
+    key = 0;
+  } else if ((scores.control || 0) >= 1 || (scores.emotion || 0) <= -1) {
+    key = 2;
+  } else {
+    key = index % palette.length;
+  }
+
+  return palette[key];
+}
+
 function renderQuestion() {
   const questionIndex = activeQuestionIndexes()[state.index];
   const question = questions[questionIndex];
@@ -1207,10 +1235,18 @@ function renderQuestion() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "option-button";
+    const badge = optionBadge(option, index);
+    button.style.setProperty("--badge-color", badge.color);
     if (answeredIndex === index) {
       button.classList.add("selected");
     }
-    button.innerHTML = `<strong>${t(option.title)}</strong><span>${t(option.note)}</span>`;
+    button.innerHTML = `
+      <div class="option-head">
+        <strong>${t(option.title)}</strong>
+        <span class="option-badge">${state.lang === "zh" ? badge.zh : badge.en}</span>
+      </div>
+      <span>${t(option.note)}</span>
+    `;
     button.addEventListener("click", () => {
       state.answers[questionIndex] = index;
       renderQuestion();

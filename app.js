@@ -45,6 +45,7 @@ const ui = {
     qrHeading: "正式链接",
     qrText: "扫码或打开 https://fun.tujipath.com/",
     qrFloatText: "扫码直达",
+    qrChipText: "官网",
     retryTop: "重新测试",
     backTop: "回首页",
     retry: "再测一次",
@@ -98,6 +99,7 @@ const ui = {
     qrHeading: "Official Link",
     qrText: "Scan the code or open https://fun.tujipath.com/",
     qrFloatText: "SCAN ME",
+    qrChipText: "SITE",
     retryTop: "Retake",
     backTop: "Home",
     retry: "Try Again",
@@ -1108,6 +1110,7 @@ const els = {
   noteHeading: document.querySelector("#note-heading"),
   noteText: document.querySelector("#note-text"),
   qrFloatText: document.querySelector("#qr-float-text"),
+  resultLinkChip: document.querySelector("#result-link-chip"),
   resultDescription: document.querySelector("#result-description"),
   coworkerView: document.querySelector("#coworker-view"),
   resultTags: document.querySelector("#result-tags"),
@@ -1180,6 +1183,7 @@ function renderStaticUi() {
   els.noteHeading.textContent = data.noteHeading;
   els.noteText.textContent = data.noteText;
   els.qrFloatText.textContent = data.qrFloatText;
+  els.resultLinkChip.textContent = data.qrChipText;
   els.langZh.classList.toggle("active", state.lang === "zh");
   els.langEn.classList.toggle("active", state.lang === "en");
 

@@ -45,6 +45,7 @@ const ui = {
     start: "开始测试",
     preview: "我想先看结果风格",
     disclaimer: "仅供娱乐，不适用于招聘、绩效、相亲、分手、升职、裁员和人生审判。",
+    plazaPeek: "下滑进入牛马广场",
     backHome: "返回首页",
     progress: (current, total) => `第 ${current} / ${total} 题`,
     questionPercent: (percent) => `${percent}%`,
@@ -114,6 +115,7 @@ const ui = {
     start: "Start Test",
     preview: "Show Me Sample Result",
     disclaimer: "For fun only. Not valid for hiring, performance reviews, breakups, promotions, layoffs, or destiny.",
+    plazaPeek: "Scroll Down To Enter The Plaza",
     backHome: "Back Home",
     progress: (current, total) => `Question ${current} / ${total}`,
     questionPercent: (percent) => `${percent}%`,
@@ -1158,6 +1160,7 @@ const els = {
   metricToneLabel: document.querySelector("#metric-tone-label"),
   metricToneValue: document.querySelector("#metric-tone-value"),
   disclaimerText: document.querySelector("#disclaimer-text"),
+  plazaPeek: document.querySelector("#plaza-peek"),
   plazaScreen: document.querySelector("#plaza-screen"),
   plazaEyebrow: document.querySelector("#plaza-eyebrow"),
   plazaTitle: document.querySelector("#plaza-title"),
@@ -1198,6 +1201,7 @@ const els = {
   resultTitle: document.querySelector("#result-title"),
   resultCode: document.querySelector("#result-code"),
   resultSummary: document.querySelector("#result-summary"),
+  resultCard: document.querySelector("#result-card"),
   resultDropTrail: document.querySelector("#result-drop-trail"),
   resultImpactRing: document.querySelector("#result-impact-ring"),
   resultAvatar: document.querySelector("#result-avatar"),
@@ -1280,6 +1284,7 @@ function renderStaticUi() {
   els.startButton.textContent = data.start;
   els.jumpResultButton.textContent = data.preview;
   els.disclaimerText.textContent = data.disclaimer;
+  els.plazaPeek.textContent = data.plazaPeek;
   els.backHomeButton.textContent = data.backHome;
   els.prevButton.textContent = data.prev;
   els.retryTopButton.textContent = data.retryTop;
@@ -1437,15 +1442,18 @@ function triggerPlazaDropAnimation() {
 }
 
 function triggerResultAirdropAnimation() {
-  [els.resultAvatar, els.resultAura, els.resultEmblem, els.resultDropTrail, els.resultImpactRing].forEach((element) => {
+  [els.resultCard, els.resultAvatar, els.resultAura, els.resultEmblem, els.resultDropTrail, els.resultImpactRing].forEach((element) => {
     element.classList.remove("airdropping");
+    element.classList.remove("airdropping-shake");
     void element.offsetWidth;
     element.classList.add("airdropping");
   });
+  els.resultCard.classList.add("airdropping-shake");
   window.clearTimeout(triggerResultAirdropAnimation.timer);
   triggerResultAirdropAnimation.timer = window.setTimeout(() => {
-    [els.resultAvatar, els.resultAura, els.resultEmblem, els.resultDropTrail, els.resultImpactRing].forEach((element) => {
+    [els.resultCard, els.resultAvatar, els.resultAura, els.resultEmblem, els.resultDropTrail, els.resultImpactRing].forEach((element) => {
       element.classList.remove("airdropping");
+      element.classList.remove("airdropping-shake");
     });
   }, 2100);
 }

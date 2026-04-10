@@ -1198,6 +1198,8 @@ const els = {
   resultTitle: document.querySelector("#result-title"),
   resultCode: document.querySelector("#result-code"),
   resultSummary: document.querySelector("#result-summary"),
+  resultDropTrail: document.querySelector("#result-drop-trail"),
+  resultImpactRing: document.querySelector("#result-impact-ring"),
   resultAvatar: document.querySelector("#result-avatar"),
   resultAura: document.querySelector("#result-aura"),
   resultEmblem: document.querySelector("#result-emblem"),
@@ -1435,17 +1437,17 @@ function triggerPlazaDropAnimation() {
 }
 
 function triggerResultAirdropAnimation() {
-  [els.resultAvatar, els.resultAura, els.resultEmblem].forEach((element) => {
+  [els.resultAvatar, els.resultAura, els.resultEmblem, els.resultDropTrail, els.resultImpactRing].forEach((element) => {
     element.classList.remove("airdropping");
     void element.offsetWidth;
     element.classList.add("airdropping");
   });
   window.clearTimeout(triggerResultAirdropAnimation.timer);
   triggerResultAirdropAnimation.timer = window.setTimeout(() => {
-    [els.resultAvatar, els.resultAura, els.resultEmblem].forEach((element) => {
+    [els.resultAvatar, els.resultAura, els.resultEmblem, els.resultDropTrail, els.resultImpactRing].forEach((element) => {
       element.classList.remove("airdropping");
     });
-  }, 860);
+  }, 2100);
 }
 
 function isPlazaVisible() {

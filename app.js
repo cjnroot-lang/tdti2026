@@ -122,6 +122,11 @@ const questions = [
         note: { zh: "活不是不能接，但先把坑位问清楚。", en: "I might take it, but not before mapping the trap." },
         scores: { risk: -1, control: 2, emotion: -1 },
       },
+      {
+        title: { zh: "低头装忙", en: "I suddenly become extremely busy" },
+        note: { zh: "眼神不能对上，活就未必会落到我头上。", en: "If I never make eye contact, the task may simply choose another host." },
+        scores: { drive: -2, social: -1, risk: -2, emotion: -1 },
+      },
     ],
   },
   {
@@ -141,6 +146,11 @@ const questions = [
         note: { zh: "少说多做，别把自己卷进群聊泥潭。", en: "Less chatter, less swamp." },
         scores: { drive: 1, social: -2, emotion: -1 },
       },
+      {
+        title: { zh: "先划水观望", en: "I let the chat marinate" },
+        note: { zh: "说不定再等十分钟，就有人自己跳出来了。", en: "Give it ten minutes and someone else may volunteer their peace." },
+        scores: { drive: -2, social: -1, control: -1 },
+      },
     ],
   },
   {
@@ -159,6 +169,11 @@ const questions = [
         title: { zh: "先追问变化原因", en: "Ask why this is happening" },
         note: { zh: "不想在错误方向上通宵。", en: "I refuse to stay up late for the wrong problem." },
         scores: { control: 2, risk: -1 },
+      },
+      {
+        title: { zh: "先假装没看到", en: "I pretend I missed that message" },
+        note: { zh: "今晚先保命，明天再说世界和平。", en: "Tonight I protect my nervous system. Tomorrow can negotiate with reality." },
+        scores: { drive: -2, risk: -2, emotion: -1 },
       },
     ],
   },
@@ -217,6 +232,11 @@ const questions = [
         note: { zh: "步骤一清晰，后面就没那么乱。", en: "If step one is clean, the rest behaves." },
         scores: { control: 2, risk: -1 },
       },
+      {
+        title: { zh: "先拖到有灵感", en: "Delay until inspiration or panic arrives" },
+        note: { zh: "说不定再过一会儿，这活自己就变简单了。", en: "Sometimes time is not procrastination. It is speculative simplification." },
+        scores: { drive: -2, control: -1, risk: -1 },
+      },
     ],
   },
   {
@@ -255,6 +275,11 @@ const questions = [
         note: { zh: "锅不是不能背，但责任要记账。", en: "I can carry a mess, but I am not donating accountability." },
         scores: { control: 2, risk: -1 },
       },
+      {
+        title: { zh: "看谁先认领", en: "I wait for fate to choose a victim" },
+        note: { zh: "如果现场还有别人活着，那锅未必一定是我的。", en: "If other people are still standing, the blame is not legally mine yet." },
+        scores: { drive: -2, social: -1, risk: -1 },
+      },
     ],
   },
   {
@@ -292,6 +317,11 @@ const questions = [
         title: { zh: "心率先上来", en: "My pulse files a complaint" },
         note: { zh: "我会开始找最稳的收尾路径。", en: "I immediately search for the safest ending." },
         scores: { control: 1, risk: -2, emotion: -1 },
+      },
+      {
+        title: { zh: "先摆，等最后一刻", en: "I go limp until the final legal second" },
+        note: { zh: "先焦虑没有用，不如让命运先酝酿一下。", en: "Panic this early is just inefficient. Let destiny simmer." },
+        scores: { drive: -2, control: -2, risk: 1, emotion: -1 },
       },
     ],
   },
@@ -445,6 +475,11 @@ const questions = [
         note: { zh: "公开催容易散，私下点名更有效。", en: "Public pressure scatters people. Direct pressure lands." },
         scores: { control: 2, social: -1 },
       },
+      {
+        title: { zh: "继续潜水", en: "I continue my underwater career" },
+        note: { zh: "群安静成这样，说明现在最安全的动作就是别说话。", en: "If the chat is this quiet, survival may mean saying absolutely nothing." },
+        scores: { drive: -2, social: -2, control: -1 },
+      },
     ],
   },
   {
@@ -483,6 +518,11 @@ const questions = [
         note: { zh: "不是所有急都是真的急。", en: "Not every emergency deserves my evening." },
         scores: { control: 2, risk: -1 },
       },
+      {
+        title: { zh: "已读，下班", en: "Seen. Logging off." },
+        note: { zh: "天塌下来也得先让我离开工位。", en: "Even if the sky falls, it can fall after I leave my chair." },
+        scores: { drive: -2, risk: -2, emotion: 1 },
+      },
     ],
   },
   {
@@ -520,6 +560,11 @@ const questions = [
         title: { zh: "先看值不值得", en: "Depends if it is worth it" },
         note: { zh: "善良可以，白给不行。", en: "Kindness is fine. Free labor is not." },
         scores: { control: 2, risk: -1 },
+      },
+      {
+        title: { zh: "原则上不碰", en: "In principle, absolutely not" },
+        note: { zh: "没人做不代表我要代偿整个组织。", en: "Organizational neglect is not a summons for my unpaid heroism." },
+        scores: { drive: -2, control: 1, social: -1, risk: -1 },
       },
     ],
   },

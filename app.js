@@ -1249,7 +1249,10 @@ function renderQuestion() {
     `;
     button.addEventListener("click", () => {
       state.answers[questionIndex] = index;
-      renderQuestion();
+      button.classList.add("selected");
+      window.setTimeout(() => {
+        advanceAfterAnswer();
+      }, 120);
     });
     els.optionList.appendChild(button);
   });
@@ -1383,6 +1386,21 @@ function resetQuiz() {
   startQuiz();
 }
 
+function advanceAfterAnswer() {
+  if (state.index === activeQuestionsCount() - 1) {
+    if (!allAnswered()) {
+      window.alert(currentUi().finishAll);
+      return;
+    }
+    renderResult();
+    showScreen("result");
+    return;
+  }
+
+  state.index += 1;
+  renderQuestion();
+}
+
 function setMode(mode) {
   state.mode = mode;
   state.index = 0;
@@ -1449,18 +1467,7 @@ els.nextButton.addEventListener("click", () => {
     return;
   }
 
-  if (state.index === activeQuestionsCount() - 1) {
-    if (!allAnswered()) {
-      window.alert(currentUi().finishAll);
-      return;
-    }
-    renderResult();
-    showScreen("result");
-    return;
-  }
-
-  state.index += 1;
-  renderQuestion();
+  advanceAfterAnswer();
 });
 els.retryButton.addEventListener("click", resetQuiz);
 els.retryTopButton.addEventListener("click", resetQuiz);

@@ -57,12 +57,12 @@ const ui = {
   en: {
     htmlTitle: "NMTI | Which office creature are you?",
     metaDescription: "24 questions to reveal your office survival type. Petty, playful, and painfully familiar.",
-    ogTitle: "NMTI / Not My Task Indicator",
+    ogTitle: "WTFI / Workplace Temperament & Friction Indicator",
     ogDescription: "Are you the Deadline Berserker, the Blame Tank, or the Emotional Shareholder? 24 questions, 3 minutes.",
-    heroEyebrow: "NMTI / NOT MY TASK INDICATOR",
-    heroTitle: "NMTI Office Type Test",
+    heroEyebrow: "WTFI / WORKPLACE TEMPERAMENT & FRICTION INDICATOR",
+    heroTitle: "WTFI Office Type Test",
     heroCopy:
-      "MBTI can sit this one out. NMTI is here. Find out whether you are the office warlord, the blame tank, the cubicle ghost, or the emotional shareholder.",
+      "What the fuck! MBTI can sit this one out. WTFI is here. Find out whether you are the office warlord, the blame tank, the cubicle ghost, or the emotional shareholder.",
     metrics: {
       questionsLabel: "Length",
       questionsValue: "24 prompts",
@@ -80,7 +80,7 @@ const ui = {
     prev: "Previous",
     next: "Next",
     submit: "See Result",
-    resultKicker: "Your NMTI Type",
+    resultKicker: "Your WTFI Type",
     descriptionHeading: "One-Line Read",
     coworkerHeading: "Coworker POV",
     radarHeading: "Your Office Radar",
@@ -96,11 +96,11 @@ const ui = {
     defaultSlogan: "Character sheet generated. Use responsibly in group chats.",
     defaultBadge: "Certified Office Creature",
     defaultStamp: "Folk Classification Bureau",
-    previewAvatarAlt: "NMTI character illustration",
+    previewAvatarAlt: "WTFI character illustration",
     chooseFirst: "Pick an option before we judge you.",
     finishAll: "You still have unanswered prompts. Finish the damage first.",
     shareText: ({ title, code, match, summary, url }) =>
-      `My NMTI office type is "${title} ${code}" with a ${match}% match.\n${summary}\nTry it here: ${url}`,
+      `My WTFI office type is "${title} ${code}" with a ${match}% match.\n${summary}\nTry it here: ${url}`,
   },
 };
 

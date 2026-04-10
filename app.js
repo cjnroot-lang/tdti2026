@@ -961,6 +961,33 @@ const archetypeVariants = {
   ],
 };
 
+const variantVisuals = {
+  "BOSS-ice": { emblem: "GRID", emblemStyle: "paper" },
+  "BOSS-hot": { emblem: "UP", emblemStyle: "badge" },
+  "BOSS-core": { emblem: "MAP", emblemStyle: "royal" },
+  "TANK-silent": { emblem: "HP", emblemStyle: "calm" },
+  "TANK-berserk": { emblem: "RAGE", emblemStyle: "warn" },
+  "TANK-core": { emblem: "SAVE", emblemStyle: "badge" },
+  "SHOW-lunch": { emblem: "LOL", emblemStyle: "badge" },
+  "SHOW-meeting": { emblem: "OFF", emblemStyle: "warn" },
+  "SHOW-core": { emblem: "STAR", emblemStyle: "paper" },
+  "GHOST-headphones": { emblem: "DND", emblemStyle: "calm" },
+  "GHOST-savior": { emblem: "404", emblemStyle: "paper" },
+  "GHOST-core": { emblem: "VOID", emblemStyle: "badge" },
+  "BRAIN-sheet": { emblem: "XLS", emblemStyle: "royal" },
+  "BRAIN-review": { emblem: "CUT", emblemStyle: "warn" },
+  "BRAIN-core": { emblem: "IQ", emblemStyle: "paper" },
+  "SPARK-producer": { emblem: "CAST", emblemStyle: "spark" },
+  "SPARK-grenade": { emblem: "BOOM", emblemStyle: "warn" },
+  "SPARK-core": { emblem: "LIVE", emblemStyle: "spark" },
+  "HERO-overnight": { emblem: "NITE", emblemStyle: "warn" },
+  "HERO-raider": { emblem: "GO", emblemStyle: "badge" },
+  "HERO-core": { emblem: "HOT", emblemStyle: "warn" },
+  "HOLD-remote": { emblem: "TAB", emblemStyle: "paper" },
+  "HOLD-bleeding": { emblem: "ALL", emblemStyle: "badge" },
+  "HOLD-core": { emblem: "HOLD", emblemStyle: "royal" },
+};
+
 const state = {
   index: 0,
   answers: Array(questions.length).fill(null),
@@ -1007,6 +1034,8 @@ const els = {
   resultCode: document.querySelector("#result-code"),
   resultSummary: document.querySelector("#result-summary"),
   resultAvatar: document.querySelector("#result-avatar"),
+  resultAura: document.querySelector("#result-aura"),
+  resultEmblem: document.querySelector("#result-emblem"),
   resultBadge: document.querySelector("#result-badge"),
   resultSlogan: document.querySelector("#result-slogan"),
   resultStamp: document.querySelector("#result-stamp"),
@@ -1162,9 +1191,13 @@ function getBestResult(scores) {
     return { ...best, match };
   }
 
+  const visualKey = `${best.code}-${variant.key}`;
+  const visual = variantVisuals[visualKey] || { emblem: "!", emblemStyle: "badge" };
+
   return {
     ...best,
     ...variant,
+    ...visual,
     code: `${best.code}-${variant.codeSuffix}`,
     match,
   };
@@ -1181,6 +1214,13 @@ function renderResult() {
   els.resultSummary.textContent = t(result.summary);
   els.resultAvatar.src = result.avatar;
   els.resultAvatar.alt = `${t(result.title)} ${data.previewAvatarAlt}`;
+  els.resultEmblem.textContent = result.emblem || "!";
+  els.resultEmblem.dataset.style = result.emblemStyle || "badge";
+  els.resultAura.style.background = `
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.92), transparent 28%),
+    radial-gradient(circle at 70% 70%, color-mix(in srgb, ${result.accent} 26%, white), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, ${result.accent} 24%, white), rgba(243, 179, 61, 0.22))
+  `;
   els.resultBadge.textContent = t(result.badge);
   els.resultSlogan.textContent = t(result.slogan);
   els.resultStamp.textContent = t(result.stamp);

@@ -55,6 +55,33 @@ body {
   margin: 24px auto 48px;
 }
 
+.lang-switch {
+  display: inline-flex;
+  gap: 6px;
+  padding: 6px;
+  margin: 0 0 12px auto;
+  background: rgba(255, 252, 247, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 24px rgba(29, 22, 15, 0.08);
+}
+
+.lang-button {
+  min-width: 68px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.lang-button.active {
+  background: var(--ink);
+  color: #fff;
+}
+
 .hero,
 .quiz,
 .result {
@@ -446,6 +473,15 @@ button {
   .shell {
     width: min(100% - 20px, 960px);
     margin-top: 10px;
+  }
+
+  .lang-switch {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .lang-button {
+    flex: 1;
   }
 
   .hero,

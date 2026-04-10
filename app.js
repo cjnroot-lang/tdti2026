@@ -1120,6 +1120,7 @@ const state = {
   mode: "short",
   result: null,
   lang: localStorage.getItem("nmti-lang") || "zh",
+  plazaDropPending: false,
 };
 
 const screens = {
@@ -1280,7 +1281,8 @@ function showScreen(name) {
   });
   els.plazaScreen.classList.toggle("hidden", name !== "hero");
   if (name === "hero" && state.result) {
-    triggerPlazaDropAnimation();
+    state.plazaDropPending = true;
+    maybeTriggerPlazaDropAnimation();
   }
 }
 
@@ -1358,6 +1360,7 @@ function triggerPlazaDropAnimation() {
   if (!state.result) {
     return;
   }
+  state.plazaDropPending = false;
   els.plazaDropCard.classList.remove("dropping");
   void els.plazaDropCard.offsetWidth;
   els.plazaDropCard.classList.add("dropping");
@@ -1365,6 +1368,24 @@ function triggerPlazaDropAnimation() {
   triggerPlazaDropAnimation.timer = window.setTimeout(() => {
     els.plazaDropCard.classList.remove("dropping");
   }, 900);
+}
+
+function isPlazaVisible() {
+  if (screens.hero.classList.contains("hidden")) {
+    return false;
+  }
+  const rect = els.plazaScreen.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  return rect.top < viewportHeight * 0.88 && rect.bottom > viewportHeight * 0.2;
+}
+
+function maybeTriggerPlazaDropAnimation() {
+  if (!state.plazaDropPending || !state.result) {
+    return;
+  }
+  if (isPlazaVisible()) {
+    triggerPlazaDropAnimation();
+  }
 }
 
 function optionBadge(option, index) {
@@ -1547,7 +1568,8 @@ function renderResult() {
   });
 
   renderPlaza();
-  triggerPlazaDropAnimation();
+  state.plazaDropPending = true;
+  maybeTriggerPlazaDropAnimation();
 }
 
 function allAnswered() {
@@ -1565,6 +1587,7 @@ function resetQuiz() {
   state.index = 0;
   state.answers = Array(questions.length).fill(null);
   state.result = null;
+  state.plazaDropPending = false;
   renderPlaza();
   startQuiz();
 }
@@ -1656,6 +1679,8 @@ els.retryButton.addEventListener("click", resetQuiz);
 els.retryTopButton.addEventListener("click", resetQuiz);
 els.backTopButton.addEventListener("click", () => showScreen("hero"));
 els.shareButton.addEventListener("click", copyShareText);
+window.addEventListener("scroll", maybeTriggerPlazaDropAnimation, { passive: true });
+window.addEventListener("resize", maybeTriggerPlazaDropAnimation);
 
 renderStaticUi();
 showScreen("hero");

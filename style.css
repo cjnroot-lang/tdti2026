@@ -879,11 +879,11 @@ button {
     opacity: 1;
   }
   28% {
-    transform: translateY(195px) scale(0.9) rotate(10deg);
+    transform: translateY(975px) scale(0.9) rotate(10deg);
     opacity: 1;
   }
   34% {
-    transform: translateY(270px) scale(0.76) rotate(14deg);
+    transform: translateY(1350px) scale(0.76) rotate(14deg);
     opacity: 0;
   }
   35% {
@@ -909,7 +909,7 @@ button {
     opacity: 1;
   }
   30% {
-    transform: translateY(205px) scale(0.82);
+    transform: translateY(1025px) scale(0.82);
     opacity: 0;
   }
   31% {
@@ -932,7 +932,7 @@ button {
     opacity: 1;
   }
   26% {
-    transform: translateY(154px) rotate(18deg) scale(0.88);
+    transform: translateY(770px) rotate(18deg) scale(0.88);
     opacity: 0;
   }
   27% {

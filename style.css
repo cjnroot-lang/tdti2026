@@ -786,11 +786,20 @@ button {
   }
 
   .result-qr-float {
-    display: none;
+    display: block;
+    width: 34px;
+    left: auto;
+    right: 10px;
+    bottom: 10px;
+    padding: 2px;
+    border-radius: 8px;
+    transform: rotate(0deg);
+    box-shadow: 0 6px 10px rgba(29, 22, 15, 0.05);
+    opacity: 0.86;
   }
 
   .result-link-chip {
-    display: inline-flex;
+    display: none;
     position: absolute;
     right: 10px;
     bottom: 10px;

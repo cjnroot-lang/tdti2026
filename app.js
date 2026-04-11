@@ -68,6 +68,7 @@ const ui = {
     retry: "再测一次",
     share: "复制分享文案",
     copied: "已复制，快去发群",
+    plazaModalKicker: "牛马广场围观",
     defaultSlogan: "你的人设已生成，请谨慎发群。",
     defaultBadge: "工位热搜角色",
     defaultStamp: "办公室民间鉴定版",
@@ -139,6 +140,7 @@ const ui = {
     retry: "Try Again",
     share: "Copy Share Text",
     copied: "Copied. Go cause chaos.",
+    plazaModalKicker: "Plaza Peek",
     defaultSlogan: "Character sheet generated. Use responsibly in group chats.",
     defaultBadge: "Certified Office Creature",
     defaultStamp: "Folk Classification Bureau",
@@ -1217,6 +1219,14 @@ const els = {
   noteText: document.querySelector("#note-text"),
   qrFloatText: document.querySelector("#qr-float-text"),
   resultLinkChip: document.querySelector("#result-link-chip"),
+  plazaModal: document.querySelector("#plaza-modal"),
+  plazaModalBackdrop: document.querySelector("#plaza-modal-backdrop"),
+  plazaModalClose: document.querySelector("#plaza-modal-close"),
+  plazaModalAvatar: document.querySelector("#plaza-modal-avatar"),
+  plazaModalKicker: document.querySelector("#plaza-modal-kicker"),
+  plazaModalTitle: document.querySelector("#plaza-modal-title"),
+  plazaModalSummary: document.querySelector("#plaza-modal-summary"),
+  plazaModalTags: document.querySelector("#plaza-modal-tags"),
   resultDescription: document.querySelector("#result-description"),
   coworkerView: document.querySelector("#coworker-view"),
   resultTags: document.querySelector("#result-tags"),
@@ -1299,6 +1309,7 @@ function renderStaticUi() {
   els.noteText.textContent = data.noteText;
   els.qrFloatText.textContent = data.qrFloatText;
   els.resultLinkChip.textContent = data.qrChipText;
+  els.plazaModalKicker.textContent = data.plazaModalKicker;
   els.langZh.classList.toggle("active", state.lang === "zh");
   els.langEn.classList.toggle("active", state.lang === "en");
   renderPlaza();
@@ -1379,6 +1390,9 @@ function renderPlaza() {
       const bubble = bubbles[index % bubbles.length];
       const item = document.createElement("div");
       item.className = "plaza-member";
+      item.tabIndex = 0;
+      item.setAttribute("role", "button");
+      item.setAttribute("aria-label", t(member.title));
       item.dataset.lane = spot.lane;
       item.style.left = spot.left;
       item.style.top = spot.top;
@@ -1397,6 +1411,14 @@ function renderPlaza() {
         </div>
         <span class="plaza-member-label">${t(member.title)}</span>
       `;
+
+      item.addEventListener("click", () => openPlazaModal(member));
+      item.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openPlazaModal(member);
+        }
+      });
 
       context.crowd.appendChild(item);
     });
@@ -1421,6 +1443,27 @@ function renderPlaza() {
       `;
     }
   });
+}
+
+function openPlazaModal(member) {
+  els.plazaModalAvatar.src = member.avatar;
+  els.plazaModalAvatar.alt = t(member.title);
+  els.plazaModalTitle.textContent = t(member.title);
+  els.plazaModalSummary.textContent = t(member.summary);
+  els.plazaModalTags.innerHTML = "";
+  member.tags[state.lang].forEach((tag) => {
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.textContent = tag;
+    els.plazaModalTags.appendChild(chip);
+  });
+  els.plazaModal.classList.remove("hidden");
+  els.plazaModal.setAttribute("aria-hidden", "false");
+}
+
+function closePlazaModal() {
+  els.plazaModal.classList.add("hidden");
+  els.plazaModal.setAttribute("aria-hidden", "true");
 }
 
 function triggerPlazaDropAnimation() {
@@ -1479,11 +1522,11 @@ function maybeTriggerPlazaDropAnimation() {
 function optionBadge(option, index) {
   const scores = option.scores;
   const palette = [
-    { color: "#db5b2b", zh: "上头", en: "CHAOS" },
-    { color: "#1f7a6b", zh: "稳住", en: "SAFE" },
-    { color: "#5b6ee1", zh: "脑补", en: "BRAIN" },
-    { color: "#73b44a", zh: "摸了", en: "CHILL" },
-    { color: "#f3b33d", zh: "开冲", en: "RUSH" },
+    { color: "#db5b2b", zh: "A面", en: "SIDE A" },
+    { color: "#1f7a6b", zh: "B面", en: "SIDE B" },
+    { color: "#5b6ee1", zh: "想想", en: "THINK" },
+    { color: "#73b44a", zh: "等等", en: "HOLD" },
+    { color: "#f3b33d", zh: "试试", en: "TRY" },
   ];
 
   let key = 0;
@@ -1768,6 +1811,13 @@ els.retryButton.addEventListener("click", resetQuiz);
 els.retryTopButton.addEventListener("click", resetQuiz);
 els.backTopButton.addEventListener("click", () => showScreen("hero"));
 els.shareButton.addEventListener("click", copyShareText);
+els.plazaModalBackdrop.addEventListener("click", closePlazaModal);
+els.plazaModalClose.addEventListener("click", closePlazaModal);
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closePlazaModal();
+  }
+});
 window.addEventListener("scroll", maybeTriggerPlazaDropAnimation, { passive: true });
 window.addEventListener("resize", maybeTriggerPlazaDropAnimation);
 

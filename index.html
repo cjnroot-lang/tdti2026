@@ -204,6 +204,18 @@
           </div>
         </section>
       </section>
+
+      <div class="plaza-modal hidden" id="plaza-modal" aria-hidden="true">
+        <div class="plaza-modal-backdrop" id="plaza-modal-backdrop"></div>
+        <div class="plaza-modal-card" role="dialog" aria-modal="true" aria-labelledby="plaza-modal-title">
+          <button class="plaza-modal-close" id="plaza-modal-close" type="button">×</button>
+          <img class="plaza-modal-avatar" id="plaza-modal-avatar" src="./avatars/boss.svg" alt="牛马广场角色">
+          <p class="mini-label" id="plaza-modal-kicker">牛马广场围观</p>
+          <h3 id="plaza-modal-title">控场总监</h3>
+          <p class="result-summary" id="plaza-modal-summary"></p>
+          <div class="chip-row" id="plaza-modal-tags"></div>
+        </div>
+      </div>
     </main>
 
     <script src="./app.js"></script>

@@ -1522,11 +1522,11 @@ function maybeTriggerPlazaDropAnimation() {
 function optionBadge(option, index) {
   const scores = option.scores;
   const palette = [
-    { color: "#db5b2b", zh: "A面", en: "SIDE A" },
-    { color: "#1f7a6b", zh: "B面", en: "SIDE B" },
-    { color: "#5b6ee1", zh: "想想", en: "THINK" },
-    { color: "#73b44a", zh: "等等", en: "HOLD" },
-    { color: "#f3b33d", zh: "试试", en: "TRY" },
+    { color: "#db5b2b", zh: "上头", en: "CHAOS" },
+    { color: "#1f7a6b", zh: "稳住", en: "SAFE" },
+    { color: "#5b6ee1", zh: "脑补", en: "BRAIN" },
+    { color: "#73b44a", zh: "摸了", en: "CHILL" },
+    { color: "#f3b33d", zh: "开冲", en: "RUSH" },
   ];
 
   let key = 0;

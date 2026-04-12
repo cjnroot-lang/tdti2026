@@ -1132,6 +1132,56 @@ const variantVisuals = {
   "HOLD-core": { emblem: "HOLD", emblemStyle: "royal" },
 };
 
+const variantProfileOffsets = {
+  "BOSS-ice": { drive: -6, social: -10, risk: -8, emotion: -18, control: 6 },
+  "BOSS-hot": { drive: 4, social: 12, risk: 6, emotion: 18, control: -4 },
+  "BOSS-core": { drive: 0, social: -2, risk: -2, emotion: -4, control: 4 },
+  "TANK-silent": { drive: -4, social: -6, risk: -4, emotion: -14, control: 2 },
+  "TANK-berserk": { drive: 6, social: 0, risk: 10, emotion: 18, control: -4 },
+  "TANK-core": { drive: 2, social: -2, risk: 2, emotion: 0, control: 0 },
+  "SHOW-lunch": { drive: 0, social: 8, risk: 2, emotion: 10, control: -4 },
+  "SHOW-meeting": { drive: 2, social: 2, risk: 4, emotion: 2, control: 6 },
+  "SHOW-core": { drive: -2, social: 4, risk: 0, emotion: 4, control: -2 },
+  "GHOST-headphones": { drive: 0, social: -10, risk: -4, emotion: -8, control: 8 },
+  "GHOST-savior": { drive: 10, social: 0, risk: 6, emotion: 0, control: -4 },
+  "GHOST-core": { drive: -2, social: -4, risk: -2, emotion: -2, control: 2 },
+  "BRAIN-sheet": { drive: 0, social: -4, risk: -4, emotion: -4, control: 10 },
+  "BRAIN-review": { drive: 0, social: -2, risk: 0, emotion: -12, control: 6 },
+  "BRAIN-core": { drive: 0, social: 0, risk: -2, emotion: -2, control: 2 },
+  "SPARK-producer": { drive: 2, social: 8, risk: 0, emotion: 4, control: 2 },
+  "SPARK-grenade": { drive: 4, social: 0, risk: 12, emotion: 4, control: -6 },
+  "SPARK-core": { drive: 0, social: 4, risk: 4, emotion: 2, control: -2 },
+  "HERO-overnight": { drive: 8, social: -2, risk: 6, emotion: 2, control: -4 },
+  "HERO-raider": { drive: 4, social: 0, risk: 8, emotion: -2, control: 8 },
+  "HERO-core": { drive: 2, social: -2, risk: 2, emotion: 0, control: 2 },
+  "HOLD-remote": { drive: -8, social: 2, risk: -4, emotion: 4, control: 2 },
+  "HOLD-bleeding": { drive: -2, social: 0, risk: 0, emotion: 12, control: -2 },
+  "HOLD-core": { drive: 0, social: 2, risk: -2, emotion: 4, control: 2 },
+};
+
+function mergeProfile(baseProfile, offsets) {
+  return Object.fromEntries(
+    dimensions.map((dimension) => {
+      const key = dimension.key;
+      return [key, clampScore((baseProfile[key] || 0) + (offsets[key] || 0))];
+    })
+  );
+}
+
+const resultCandidates = archetypes.flatMap((base) =>
+  (archetypeVariants[base.code] || []).map((variant) => {
+    const variantKey = `${base.code}-${variant.key}`;
+    const visual = variantVisuals[variantKey] || { emblem: "!", emblemStyle: "badge" };
+    return {
+      ...base,
+      ...variant,
+      ...visual,
+      code: `${base.code}-${variant.codeSuffix}`,
+      profile: mergeProfile(base.profile, variantProfileOffsets[variantKey] || {}),
+    };
+  })
+);
+
 const state = {
   index: 0,
   answers: Array(questions.length).fill(null),
@@ -1626,29 +1676,14 @@ function distance(a, b) {
 }
 
 function getBestResult(scores) {
-  const ranked = archetypes
+  const ranked = resultCandidates
     .map((item) => ({ ...item, delta: distance(scores, item.profile) }))
     .sort((left, right) => left.delta - right.delta);
 
   const best = ranked[0];
-  const match = Math.max(63, Math.min(98, Math.round(100 - Math.sqrt(best.delta) * 0.9)));
-  const variants = archetypeVariants[best.code] || [];
-  const variant = variants.find((item) => item.match(scores)) || null;
-
-  if (!variant) {
-    return { ...best, match };
-  }
-
-  const visualKey = `${best.code}-${variant.key}`;
-  const visual = variantVisuals[visualKey] || { emblem: "!", emblemStyle: "badge" };
-
-  return {
-    ...best,
-    ...variant,
-    ...visual,
-    code: `${best.code}-${variant.codeSuffix}`,
-    match,
-  };
+  const rawMatch = Math.max(0, Math.min(100, Math.round(100 - Math.sqrt(best.delta) * 0.9)));
+  const match = Math.round(63 + rawMatch * 0.37);
+  return { ...best, match };
 }
 
 function renderResult() {

@@ -1292,7 +1292,7 @@ const state = {
   answers: Array(questions.length).fill(null),
   mode: "short",
   result: null,
-  lang: localStorage.getItem("nmti-lang") || "zh",
+  lang: localStorage.getItem("lmti-lang") || "zh",
   plazaDropPending: false,
 };
 
@@ -1917,7 +1917,7 @@ function copyShareText() {
 
 function setLanguage(lang) {
   state.lang = lang;
-  localStorage.setItem("nmti-lang", lang);
+  localStorage.setItem("lmti-lang", lang);
   renderStaticUi();
 }
 

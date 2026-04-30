@@ -1,12 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
-  <rect width="160" height="160" rx="34" fill="#F3F5F7"/>
-  <circle cx="80" cy="80" r="58" fill="#DDE5EA"/>
-  <path d="M49 60c2-17 14-28 31-28 16 0 29 11 31 28v7H49v-7Z" fill="#39434C"/>
-  <rect x="50" y="67" width="60" height="47" rx="23" fill="#F4D7C7"/>
-  <circle cx="69" cy="85" r="3" fill="#1D160F"/>
-  <circle cx="91" cy="85" r="3" fill="#1D160F"/>
-  <path d="M72 97c4 1 12 1 16 0" stroke="#1D160F" stroke-width="4" stroke-linecap="round"/>
-  <path d="M42 136c3-20 17-31 38-31 21 0 35 11 38 31H42Z" fill="#536471"/>
-  <rect x="44" y="76" width="74" height="48" rx="10" fill="#FFFFFF" fill-opacity=".28" stroke="#FFFFFF" stroke-opacity=".48"/>
-  <path d="M113 60c7 4 12 12 12 21" stroke="#A6B8C5" stroke-width="4" stroke-linecap="round"/>
+  <rect width="160" height="160" rx="34" fill="#FFFDF5"/>
+  <path d="M60 148 Q70 146 80 149 Q90 146 100 148" stroke="#D4C8B0" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Legs -->
+  <path d="M72 108 Q70 120 71 130 Q72 140 70 146" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M88 108 Q90 120 89 130 Q88 140 90 146" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M66 146 Q68 144 72 145 Q74 146 74 148" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M86 146 Q88 144 92 145 Q94 146 94 148" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Torso -->
+  <path d="M64 68 Q62 80 63 90 Q64 100 66 108 Q72 112 80 112 Q88 112 94 108 Q96 100 97 90 Q98 80 96 68" stroke="#7A8E9A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M70 64 Q75 60 80 59 Q85 60 90 64" stroke="#7A8E9A" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Arms -->
+  <path d="M64 68 Q58 74 56 82 Q54 90 58 96 Q62 102 66 108" stroke="#7A8E9A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M96 68 Q102 74 104 82 Q106 90 102 96 Q98 102 94 108" stroke="#7A8E9A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M68 96 Q74 98 80 97 Q86 98 92 96" stroke="#7A8E9A" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+
+  <!-- Neck -->
+  <path d="M78 58 Q80 56 82 58 L81 64" stroke="#E0AA78" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Head -->
+  <path d="M62 38 Q60 30 64 26 Q68 22 80 22 Q92 22 96 26 Q100 30 98 38 Q100 46 96 50 Q92 54 80 54 Q68 54 64 50 Q60 46 62 38 Z" fill="#F0C9A6" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Hair -->
+  <path d="M60 36 Q58 28 64 24 Q70 20 80 20 Q90 20 96 24 Q102 28 100 36 L98 40 Q80 36 62 40 Z" fill="#2D353F"/>
+
+  <!-- Sunglasses (SOLO cool) -->
+  <path d="M64 38 Q64 36 68 36 L76 36 Q78 36 78 38 L78 42 Q78 44 76 44 L68 44 Q64 44 64 42 Z" fill="#2D353F"/>
+  <path d="M82 38 Q82 36 86 36 L94 36 Q96 36 96 38 L96 42 Q96 44 94 44 L86 44 Q82 44 82 42 Z" fill="#2D353F"/>
+  <line x1="78" y1="40" x2="82" y2="40" stroke="#2D353F" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Smile -->
+  <path d="M74 48 Q80 52 86 48" stroke="#2D3748" stroke-width="2" stroke-linecap="round" fill="none"/>
 </svg>

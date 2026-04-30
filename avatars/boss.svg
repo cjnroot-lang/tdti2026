@@ -1,13 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
-  <rect width="160" height="160" rx="34" fill="#FFF7EB"/>
-  <circle cx="80" cy="80" r="58" fill="#F6E2BF"/>
-  <path d="M49 58c2-16 16-28 31-28 17 0 31 12 33 28v7H49v-7Z" fill="#1D160F"/>
-  <rect x="50" y="66" width="60" height="47" rx="24" fill="#FFD8B7"/>
-  <path d="M61 79h14M85 79h14" stroke="#1D160F" stroke-width="4" stroke-linecap="round"/>
-  <path d="M72 95c3 3 13 3 16 0" stroke="#1D160F" stroke-width="4" stroke-linecap="round"/>
-  <path d="M43 134c3-20 18-30 37-30 20 0 36 10 39 30H43Z" fill="#DB5B2B"/>
-  <rect x="69" y="104" width="22" height="21" rx="5" fill="#1F7A6B"/>
-  <path d="m80 110 6 8h-12l6-8Z" fill="#FFF7EB"/>
-  <rect x="47" y="36" width="66" height="12" rx="6" fill="#F3B33D"/>
-  <rect x="58" y="27" width="43" height="12" rx="6" fill="#F3B33D"/>
+  <rect width="160" height="160" rx="34" fill="#FFFDF5"/>
+
+  <!-- Ground scribble -->
+  <path d="M58 148 Q68 146 80 149 Q92 146 102 148" stroke="#D4C8B0" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Legs (wobbly) -->
+  <path d="M72 108 Q70 120 71 130 Q72 140 70 146" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M88 108 Q90 120 89 130 Q88 140 90 146" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Shoes (scribbly) -->
+  <path d="M66 146 Q68 144 72 145 Q74 146 74 148" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M86 146 Q88 144 92 145 Q94 146 94 148" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Torso (wobbly hoodie) -->
+  <path d="M64 68 Q62 80 63 90 Q64 100 66 108 Q72 112 80 112 Q88 112 94 108 Q96 100 97 90 Q98 80 96 68" stroke="#4A6FA5" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Hoodie collar (messy) -->
+  <path d="M70 64 Q75 60 80 59 Q85 60 90 64" stroke="#4A6FA5" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Arms (scribbly) -->
+  <path d="M64 68 Q58 74 56 82 Q54 90 58 96 Q62 102 66 108" stroke="#4A6FA5" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M96 68 Q102 74 104 82 Q106 90 102 96 Q98 102 94 108" stroke="#4A6FA5" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Pocket line (wobbly) -->
+  <path d="M68 96 Q74 98 80 97 Q86 98 92 96" stroke="#4A6FA5" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+
+  <!-- Neck -->
+  <path d="M78 58 Q80 56 82 58 L81 64" stroke="#E0AA78" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Head (wobbly circle) -->
+  <path d="M62 38 Q60 30 64 26 Q68 22 80 22 Q92 22 96 26 Q100 30 98 38 Q100 46 96 50 Q92 54 80 54 Q68 54 64 50 Q60 46 62 38 Z" fill="#F0C9A6" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Hair (messy scribble) -->
+  <path d="M60 36 Q58 28 64 24 Q70 20 80 20 Q90 20 96 24 Q102 28 100 36 L98 40 Q80 36 62 40 Z" fill="#1A202C"/>
+
+  <!-- Headphones (wobbly) -->
+  <path d="M58 36 Q56 24 68 20 Q80 16 92 20 Q104 24 102 36" stroke="#718096" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <rect x="52" y="32" width="10" height="14" rx="4" fill="#718096" stroke="#5A6A7A" stroke-width="1.5"/>
+  <rect x="98" y="32" width="10" height="14" rx="4" fill="#718096" stroke="#5A6A7A" stroke-width="1.5"/>
+
+  <!-- Eyes (bored, scribbly) -->
+  <path d="M72 40 Q75 39 78 40" stroke="#1A202C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M82 40 Q85 39 88 40" stroke="#1A202C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Mouth (flat, wobbly) -->
+  <path d="M76 48 Q80 47 84 48" stroke="#1A202C" stroke-width="2" stroke-linecap="round" fill="none"/>
 </svg>

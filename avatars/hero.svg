@@ -1,12 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
-  <rect width="160" height="160" rx="34" fill="#FFF3E4"/>
-  <circle cx="80" cy="80" r="58" fill="#FFD9B0"/>
-  <path d="M48 60c2-17 15-29 31-29 17 0 31 12 33 29v7H48v-7Z" fill="#6E331E"/>
-  <rect x="50" y="67" width="60" height="47" rx="23" fill="#FFD6BC"/>
-  <circle cx="70" cy="84" r="3" fill="#1D160F"/>
-  <circle cx="91" cy="84" r="3" fill="#1D160F"/>
-  <path d="M71 97c4 3 14 3 18 0" stroke="#1D160F" stroke-width="4" stroke-linecap="round"/>
-  <path d="M41 136c4-22 20-34 39-34 20 0 36 12 39 34H41Z" fill="#F08B2D"/>
-  <path d="m82 44 5 10 11 1-8 8 2 11-10-5-10 5 2-11-8-8 11-1 5-10Z" fill="#DB5B2B"/>
-  <path d="m117 118 8-14h-11l10-15" stroke="#DB5B2B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="160" height="160" rx="34" fill="#FFFDF5"/>
+  <path d="M58 148 Q68 146 80 149 Q92 146 102 148" stroke="#D4C8B0" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Legs -->
+  <path d="M70 106 Q68 118 69 128 Q70 138 68 144" stroke="#8B4A3E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M90 106 Q92 118 91 128 Q90 138 92 144" stroke="#8B4A3E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M64 144 Q66 142 70 143 Q72 144 72 146" stroke="#5A2F28" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M88 144 Q90 142 94 143 Q96 144 96 146" stroke="#5A2F28" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Torso (red) -->
+  <path d="M60 66 Q58 78 59 88 Q60 98 62 106 Q68 110 80 110 Q92 110 98 106 Q100 98 101 88 Q102 78 100 66" stroke="#E0604A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M68 62 Q74 58 80 57 Q86 58 92 62" stroke="#E0604A" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Arms (open wide) -->
+  <path d="M60 66 Q48 60 38 58 Q34 56 32 60" stroke="#E0604A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M100 66 Q112 60 122 58 Q126 56 128 60" stroke="#E0604A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Neck -->
+  <path d="M78 56 Q80 54 82 56 L81 62" stroke="#F0C090" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Head -->
+  <path d="M60 36 Q58 28 62 24 Q66 20 80 20 Q94 20 98 24 Q102 28 100 36 Q102 44 98 48 Q94 52 80 52 Q66 52 62 48 Q58 44 60 36 Z" fill="#FAD8B8" stroke="#2D3748" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Hair -->
+  <path d="M58 34 Q56 26 62 22 Q68 18 80 18 Q92 18 98 22 Q104 26 102 34 L100 38 Q80 34 60 38 Z" fill="#4A301E"/>
+
+  <!-- Heart eyes -->
+  <path d="M68 36 Q70 32 74 36 Q70 40 68 36 Z" fill="#E0604A"/>
+  <path d="M86 36 Q88 32 92 36 Q88 40 86 36 Z" fill="#E0604A"/>
+
+  <!-- Big smile -->
+  <path d="M72 46 Q80 52 88 46 Z" fill="#E05040" stroke="#2D3748" stroke-width="1.5" stroke-linecap="round"/>
 </svg>
